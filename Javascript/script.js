@@ -8,9 +8,9 @@ let currentTrackIndex = 0;
 
 // Just list your filenames in the songs folder
 const playlist = [
-  'songs/Amazing_Grace.mp3',
-  'songs/10000_Reasons.mp3',
-  'songs/I_Can_Only_Imagine.mp3'
+  'songs/10000ReasonsblessTheLord-mattRedman.mp3',
+  'songs/CastingCrowns-VoiceOfTruth.mp3',
+  'songs/CastingCrowns-VoiceOfTruth.mp3'
 ];
 
 function loadTrack(index) {
