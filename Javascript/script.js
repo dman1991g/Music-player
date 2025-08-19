@@ -10,7 +10,8 @@ let currentTrackIndex = 0;
 const playlist = [
   'songs/10000ReasonsblessTheLord-mattRedman.mp3',
   'songs/CastingCrowns-VoiceOfTruth.mp3',
-  'songs/CastingCrowns-VoiceOfTruth.mp3'
+  'songs/CastingCrowns-WhoAmI.mp3',
+  'songs/Mercyme-Greater.mp3',
 ];
 
 function loadTrack(index) {
