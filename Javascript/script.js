@@ -5,15 +5,16 @@ const volumeSlider = document.getElementById('volume-slider');
 const playlistItems = document.getElementById('playlist-items');
 
 let currentTrackIndex = 0;
+
+// Just list your filenames in the songs folder
 const playlist = [
-  { title: 'Song 1', source: 'song1.mp3' },
-  { title: 'Song 2', source: 'song2.mp3' },
-  { title: 'Song 3', source: 'song3.mp3' }
+  'songs/Amazing_Grace.mp3',
+  'songs/10000_Reasons.mp3',
+  'songs/I_Can_Only_Imagine.mp3'
 ];
 
 function loadTrack(index) {
-  const track = playlist[index];
-  audioPlayer.src = track.source;
+  audioPlayer.src = playlist[index];
 }
 
 function playTrack() {
@@ -38,9 +39,13 @@ function previousTrack() {
 
 function renderPlaylist() {
   playlistItems.innerHTML = '';
-  playlist.forEach((track, index) => {
+  playlist.forEach((path, index) => {
+    // Extract file name from path
+    let title = path.split('/').pop().replace('.mp3', '');
+    // Replace underscores with spaces and clean numbers if needed
+    title = title.replace(/_/g, ' ');
     const li = document.createElement('li');
-    li.textContent = track.title;
+    li.textContent = title;
     li.addEventListener('click', () => {
       currentTrackIndex = index;
       loadTrack(currentTrackIndex);
@@ -50,6 +55,7 @@ function renderPlaylist() {
   });
 }
 
+// Event listeners
 playBtn.addEventListener('click', playTrack);
 pauseBtn.addEventListener('click', pauseTrack);
 audioPlayer.addEventListener('ended', nextTrack);
@@ -58,5 +64,6 @@ volumeSlider.addEventListener('input', () => {
   audioPlayer.volume = volumeSlider.value;
 });
 
+// Initialize
 loadTrack(currentTrackIndex);
 renderPlaylist();
